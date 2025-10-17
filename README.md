@@ -6,5 +6,5 @@
 **Description:**  
 This project involves setting up a GitHub workflow, deploying an NGINX web server, and serving a custom webpage as part of the **HNG13 DevOps** task.
 
-**Server IP/Domain:**  
+**Server IP/Domain:**  http://4.186.26.234
 
