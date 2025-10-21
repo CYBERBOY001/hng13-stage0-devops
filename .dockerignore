@@ -1,0 +1,28 @@
+# Version control
+.git
+.gitignore
+
+# Docker files
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Logs and temp files
+*.log
+*.tmp
+*.swp
+.DS_Store
+Thumbs.db
+
+# IntelliJ IDEA project files
+.idea/
+*.iml
+out/
+
+# Node/build artifacts (if present)
+node_modules/
+dist/
+build/
+
+# OS files
+__MACOSX
