@@ -1,7 +1,18 @@
-FROM nginx:alpine
-WORKDIR /usr/share/nginx/html
-RUN rm -rf ./*
+FROM node:18-alpine
+
+RUN apk --no-cache add curl
+
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN npm install --production --no-optional && npm cache clean --force
+
 COPY . .
-EXPOSE 80
-HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 CMD wget -qO- http://localhost:80 || exit 1
-CMD ["nginx", "-g", "daemon off;"]
+
+EXPOSE 8080
+
+HEALTHCHECK --interval=10s --timeout=5s --start-period=5s --retries=3 \
+  CMD curl -f http://localhost:8080/healthz || exit 1
+
+CMD ["node", "server.js"]
